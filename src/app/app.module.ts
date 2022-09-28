@@ -9,6 +9,8 @@ import { AuthorsComponent } from './authors/authors.component';
 
 //Agregar el nuevo componente CoursesComponent al modulo de la App
 //Se pueden generar los archivos necesarios para un nuevo componente en una nueva carpeta en app y agregarlos al modulo principal de la app con el comando: ng g c <nombreComponente>
+// con el comando: npm install bootstrap --save descarga bootstrap y lo almacena en el folder de modulos de node, y con --save se agrega a las dependencias en package.json
+//Con el comando: npm install descargas todas las dependencias relacionadas en package.json
 @NgModule({
   declarations: [
     AppComponent,

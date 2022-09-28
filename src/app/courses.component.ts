@@ -32,6 +32,9 @@ import { Component } from "@angular/core";
                         <td [attr.colspan]="colSpan"></td>
                     </tr>
                 </table>
+
+                <!-- Funcionando con la importacion de bootstrap en styles.css -->
+                <button class="btn btn-primary">Save</button>
               `
 })
 export class CoursesComponent {
