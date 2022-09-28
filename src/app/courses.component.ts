@@ -25,11 +25,19 @@ import { Component } from "@angular/core";
 
                 <!-- <img src="{{ imageUrl }}" /> Forma interpolación-->
                 <img [src]="imageUrl" /> <!-- Forma binding solo funciona del component al dom, por ej, de un input field al componente, no funcionará -->
+
+                <table>
+                    <tr>
+                        <!-- Sin el attr. colspan no funcionará porque no esta mapeado dentro de los atributos del DOM del elemento HTML td-->
+                        <td [attr.colspan]="colSpan"></td>
+                    </tr>
+                </table>
               `
 })
 export class CoursesComponent {
     title = "List of courses";
     imageUrl = "https://picsum.photos/400/200";
+    colSpan = 2;
 
     getTitle() {
         return this.title;
