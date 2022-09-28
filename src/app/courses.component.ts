@@ -8,6 +8,7 @@ import { Component } from "@angular/core";
     //Doble {} para renderizar contenido dinamicamente o llamar métodos (a esta sintaxis se le conoce como INTERPOLACION)
     // Con backtick `` ( alt gr + } ) se puede escribir en varias lineas
     //Se usan directivas de Angular, en este caso se itera cada course en courses
+    //Se pueden usar property bindings tambien para insertar, mejoran la readability del codigo
     template: `
                 <h2>{{ "Title: " + title + " ... "+ getTitle()}}</h2>
                 <ul>
@@ -21,10 +22,14 @@ import { Component } from "@angular/core";
                         {{ courseService }}
                     </li>
                 </ul>
+
+                <!-- <img src="{{ imageUrl }}" /> Forma interpolación-->
+                <img [src]="imageUrl" /> <!-- Forma binding solo funciona del component al dom, por ej, de un input field al componente, no funcionará -->
               `
 })
 export class CoursesComponent {
     title = "List of courses";
+    imageUrl = "https://picsum.photos/400/200";
 
     getTitle() {
         return this.title;
