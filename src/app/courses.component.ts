@@ -37,6 +37,12 @@ import { Component } from "@angular/core";
                 <!-- Class binding: Si la variable isActive es true, la clase muestra btn, btn-primary y active, si es false solo muestra btn y btn-primary -->
                 <!-- Style binding: activa o desactiva estilos dependiendo de condiciones del DOM, en este caso, del backgroundColor del boton -->
                 <button class="btn btn-primary" [class.active]="isActive" [style.backgroundColor]="isActive ? 'blue' : 'gray'">Save</button>
+                <!-- Se usa parentesis y se bindea el metodo del componente. El $event nos da informacion del evento que se ejecuto en la consola inspect del movimiento del mouse -->
+                <!-- El event bubbling consiste en ir subiendo de niveles entre los elementos al accionar un evento, aqui acciona el evento del boton y del div en consola
+                    Si queremos detener la propagacion del evento entre elementos, debemos usar el stopPropagation() -->
+                <div (click)="onEventDiv()">
+                    <button (click)="onEventButton($event)">Event</button>
+                </div>
               `
 })
 export class CoursesComponent {
@@ -47,6 +53,15 @@ export class CoursesComponent {
 
     getTitle() {
         return this.title;
+    }
+
+    onEventButton($event: MouseEvent) {
+        $event.stopPropagation();
+        console.log("Button was clicked. Method button activated! ", $event);
+    }
+
+    onEventDiv() {
+        console.log("Button was clicked. Method div activated! ");
     }
 
     //Se pasa al service y aqui se deja solo la variable sin asignar
