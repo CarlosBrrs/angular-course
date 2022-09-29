@@ -49,13 +49,17 @@ import { Component } from "@angular/core";
                 <!-- Template variables para capturar en variables lo que se envia en el input. La primera es la forma tradicional, la segunda es Template variable -->
                 <input (keyup.enter)="onKeyUpKeyPressed($event)"/>
                 <input #email (keyup.enter)="onKeyUpKeyPressedTemplateVariable(email.value)"/>
+                <!-- Two way binding referenciando una variable de los atributos en la vista y luego tomando el nuevo valor de ahi y pasandola al componente
+                    El [(ngModel)] hace que el valor viaje del componente a la vista y de la vista al componente. Se debe importar el FormsModule en app.module.ts-->
+                <input [(ngModel)]="emailTwoWay" (keyup.enter)="onKeyUpKeyPressedTwoWayBinding()"/>
               `
 })
 export class CoursesComponent {
     title = "List of courses";
-    imageUrl = "https://picsum.photos/400/200";
+    imageUrl = "https://picsum.photos/700/200";
     colSpan = 2;
     isActive = true;
+    emailTwoWay = "first@first.com";
 
     getTitle() {
         return this.title;
@@ -84,6 +88,10 @@ export class CoursesComponent {
 
     onKeyUpKeyPressedTemplateVariable(email: string) {
         console.log(email);
+    }
+
+    onKeyUpKeyPressedTwoWayBinding() {
+        console.log(this.emailTwoWay);
     }
     //Se pasa al service y aqui se deja solo la variable sin asignar
     coursesLocal = ["Math","Science","Geography"];
