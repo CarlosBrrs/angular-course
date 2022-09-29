@@ -34,13 +34,15 @@ import { Component } from "@angular/core";
                 </table>
 
                 <!-- Funcionando con la importacion de bootstrap en styles.css -->
-                <button class="btn btn-primary">Save</button>
+                <!-- Class binding: Si la variable isActive es true, la clase muestra btn, btn-primary y active, si es false solo muestra btn y btn-primary -->
+                <button class="btn btn-primary" [class.active]="isActive">Save</button>
               `
 })
 export class CoursesComponent {
     title = "List of courses";
     imageUrl = "https://picsum.photos/400/200";
     colSpan = 2;
+    isActive = true;
 
     getTitle() {
         return this.title;
