@@ -35,7 +35,8 @@ import { Component } from "@angular/core";
 
                 <!-- Funcionando con la importacion de bootstrap en styles.css -->
                 <!-- Class binding: Si la variable isActive es true, la clase muestra btn, btn-primary y active, si es false solo muestra btn y btn-primary -->
-                <button class="btn btn-primary" [class.active]="isActive">Save</button>
+                <!-- Style binding: activa o desactiva estilos dependiendo de condiciones del DOM, en este caso, del backgroundColor del boton -->
+                <button class="btn btn-primary" [class.active]="isActive" [style.backgroundColor]="isActive ? 'blue' : 'gray'">Save</button>
               `
 })
 export class CoursesComponent {
