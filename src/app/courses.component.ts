@@ -43,6 +43,9 @@ import { Component } from "@angular/core";
                 <div (click)="onEventDiv()">
                     <button (click)="onEventButton($event)">Event</button>
                 </div>
+                <!-- Event filtering es filtrar segun el evento que ocurra, en este caso, al presionar Enter. Existen dos maneras -->
+                <input (keyup)="onKeyUp($event)"/>
+                <input (keyup.enter)="onKeyUpSimplified()"/>
               `
 })
 export class CoursesComponent {
@@ -64,6 +67,13 @@ export class CoursesComponent {
         console.log("Button was clicked. Method div activated! ");
     }
 
+    onKeyUp($event: any) {
+        if($event.key === 'Enter') console.log("ENTER was pressed");
+    }
+
+    onKeyUpSimplified() {
+        console.log("ENTER was pressed");
+    }
     //Se pasa al service y aqui se deja solo la variable sin asignar
     coursesLocal = ["Math","Science","Geography"];
     //Variable sin asignar, se asigna en el constructor
