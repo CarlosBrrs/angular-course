@@ -46,6 +46,9 @@ import { Component } from "@angular/core";
                 <!-- Event filtering es filtrar segun el evento que ocurra, en este caso, al presionar Enter. Existen dos maneras -->
                 <input (keyup)="onKeyUp($event)"/>
                 <input (keyup.enter)="onKeyUpSimplified()"/>
+                <!-- Template variables para capturar en variables lo que se envia en el input. La primera es la forma tradicional, la segunda es Template variable -->
+                <input (keyup.enter)="onKeyUpKeyPressed($event)"/>
+                <input #email (keyup.enter)="onKeyUpKeyPressedTemplateVariable(email.value)"/>
               `
 })
 export class CoursesComponent {
@@ -73,6 +76,14 @@ export class CoursesComponent {
 
     onKeyUpSimplified() {
         console.log("ENTER was pressed");
+    }
+
+    onKeyUpKeyPressed($event: any) {
+        console.log($event.target.value + " was typed");
+    }
+
+    onKeyUpKeyPressedTemplateVariable(email: string) {
+        console.log(email);
     }
     //Se pasa al service y aqui se deja solo la variable sin asignar
     coursesLocal = ["Math","Science","Geography"];
