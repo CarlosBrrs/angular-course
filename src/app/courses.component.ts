@@ -44,14 +44,21 @@ import { Component } from "@angular/core";
                     <button (click)="onEventButton($event)">Event</button>
                 </div>
                 <!-- Event filtering es filtrar segun el evento que ocurra, en este caso, al presionar Enter. Existen dos maneras -->
-                <input (keyup)="onKeyUp($event)"/>
-                <input (keyup.enter)="onKeyUpSimplified()"/>
+                <input (keyup)="onKeyUp($event)"/><br/>
+                <input (keyup.enter)="onKeyUpSimplified()"/><br/>
                 <!-- Template variables para capturar en variables lo que se envia en el input. La primera es la forma tradicional, la segunda es Template variable -->
-                <input (keyup.enter)="onKeyUpKeyPressed($event)"/>
-                <input #email (keyup.enter)="onKeyUpKeyPressedTemplateVariable(email.value)"/>
+                <input (keyup.enter)="onKeyUpKeyPressed($event)"/><br/>
+                <input #email (keyup.enter)="onKeyUpKeyPressedTemplateVariable(email.value)"/><br/>
                 <!-- Two way binding referenciando una variable de los atributos en la vista y luego tomando el nuevo valor de ahi y pasandola al componente
                     El [(ngModel)] hace que el valor viaje del componente a la vista y de la vista al componente. Se debe importar el FormsModule en app.module.ts-->
-                <input [(ngModel)]="emailTwoWay" (keyup.enter)="onKeyUpKeyPressedTwoWayBinding()"/>
+                <input [(ngModel)]="emailTwoWay" (keyup.enter)="onKeyUpKeyPressedTwoWayBinding()"/><br/>
+                
+                <!-- Pipes son built-in o custom blocks que se usan para formatear data, se coloca | y luego el nombre del pipe -->
+                {{ course.title | uppercase | lowercase }} <br/> <!-- se pueden encadenar: lowercase toda el resultado de todo lo anterior -->
+                {{ course.rating | number:'1.2-2' }} <br/> <!-- para decimales: #deDigitosEnteros.#minDeDecimales-#maxDeDecimales. Con 1.1-1 lo podria redondear --> 
+                {{ course.students | number }} <br/> <!-- Para hacer el numero mas legible -->
+                {{ course.price | currency:'CAD':true:'3.2-2' }} <br/> <!-- Sin especificar genera el USD, sino, hay que pasar el currency deseado, se concatena true para desplegar el simbolo, y el otro para dar formato al numero -->
+                {{ course.releaseDate | date:'longDate' }} <br/> <!-- Consultar los distintos tipos de formato en la web de Angular -->
               `
 })
 export class CoursesComponent {
@@ -60,6 +67,13 @@ export class CoursesComponent {
     colSpan = 2;
     isActive = true;
     emailTwoWay = "first@first.com";
+    course = {
+        title: "The complete Angular course",
+        rating: 4.9745,
+        students: 121230123,
+        price: 190.95,
+        releaseDate: new Date(2016, 3, 1)
+    }
 
     getTitle() {
         return this.title;
