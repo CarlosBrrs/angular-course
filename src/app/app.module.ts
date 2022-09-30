@@ -1,3 +1,4 @@
+import { SummaryPipe } from './summary.pipe';
 import { AuthorsService } from './authors.service';
 import { CoursesService } from './courses.service';
 import { NgModule } from '@angular/core';
@@ -15,7 +16,8 @@ import { AuthorsComponent } from './authors/authors.component';
   declarations: [
     AppComponent,
     CoursesComponent,
-    AuthorsComponent
+    AuthorsComponent,
+    SummaryPipe //Se agrega el nuevo Pipe en las declaraciones 
   ],
   imports: [
     BrowserModule,

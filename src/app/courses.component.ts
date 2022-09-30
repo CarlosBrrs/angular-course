@@ -59,6 +59,8 @@ import { Component } from "@angular/core";
                 {{ course.students | number }} <br/> <!-- Para hacer el numero mas legible -->
                 {{ course.price | currency:'CAD':true:'3.2-2' }} <br/> <!-- Sin especificar genera el USD, sino, hay que pasar el currency deseado, se concatena true para desplegar el simbolo, y el otro para dar formato al numero -->
                 {{ course.releaseDate | date:'longDate' }} <br/> <!-- Consultar los distintos tipos de formato en la web de Angular -->
+                <!-- Custom pipes -->
+                {{ text | summary:10 }} <!-- Se debe crear el nuevo archivo en el proyecto -->
               `
 })
 export class CoursesComponent {
@@ -74,6 +76,7 @@ export class CoursesComponent {
         price: 190.95,
         releaseDate: new Date(2016, 3, 1)
     }
+    text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
 
     getTitle() {
         return this.title;
