@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
 import { AuthorsComponent } from './authors/authors.component';
 import { StarComponent } from './star/star.component';
+import { CapitalizeComponent } from './capitalize/capitalize.component';
+import { CustomCapitalizePipe } from './customCapitalize.pipe';
 
 //Agregar el nuevo componente CoursesComponent al modulo de la App
 //Se pueden generar los archivos necesarios para un nuevo componente en una nueva carpeta en app y agregarlos al modulo principal de la app con el comando: ng g c <nombreComponente>
@@ -19,7 +21,9 @@ import { StarComponent } from './star/star.component';
     CoursesComponent,
     AuthorsComponent,
     SummaryPipe,  //Se agrega el nuevo Pipe en las declaraciones 
-    StarComponent
+    StarComponent,
+    CapitalizeComponent,
+    CustomCapitalizePipe
   ],
   imports: [
     BrowserModule,
