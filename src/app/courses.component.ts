@@ -24,7 +24,7 @@ import { Component } from "@angular/core";
                 </ul>
 
                 <!-- <img src="{{ imageUrl }}" /> Forma interpolación-->
-                <img [src]="imageUrl" /> <!-- Forma binding solo funciona del component al dom, por ej, de un input field al componente, no funcionará -->
+                <img [src]="imageUrl" /> <!-- Forma property binding solo funciona del component al dom, por ej, de un input field al componente, no funcionará -->
 
                 <table>
                     <tr>
