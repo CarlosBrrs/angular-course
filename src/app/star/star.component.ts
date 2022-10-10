@@ -6,7 +6,16 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './star.component.html',
   styleUrls: ['./star.component.css']
   //, inputs: ['isFavorite'] //Para el segundo enfoque no se necesita el import ni la anotacion, solo incluir el campo en el component
+  // Va a tomar el estilo de aca aunque ya tenga algo definido en el archivo dispuesto para estilos del componente
+  ,styles: [
+    `
+    .bi {
+    color: blue;
+    }
+    `
+  ]
 })
+
 export class StarComponent implements OnInit {
 
   //Queremos marcar este field como input property para poder usarlo en property binding expressions, como en el componente html, para info que viene del servidor. Hay 2 maneras
