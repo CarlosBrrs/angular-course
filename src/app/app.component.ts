@@ -12,4 +12,8 @@ export class AppComponent {
     title: "Title of the post",
     isFavorite: true
   }
+
+  onStarChanged() {
+    console.log("Star changed");
+  }
 }
