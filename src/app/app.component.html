@@ -1,6 +1,7 @@
 <h1>Angular</h1>
 <!--Cuando angular ve este elemento, renderiza el template relacionado en el Component-->
 <courses></courses>
-<app-star [isFavorite]="post.isFavorite"></app-star>
+<!-- Input y Output properties sobre un componente que definen un Component API para hacerlo mas reusable -->
+<app-star [is-favorite]="post.isFavorite" (change)="onStarChange()"></app-star>
 <app-capitalize></app-capitalize>
 <app-authors></app-authors>
