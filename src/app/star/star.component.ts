@@ -19,7 +19,8 @@ export class StarComponent implements OnInit {
 
   changeOnClick() {
     this.isFavorite = !this.isFavorite;
-    this.change.emit();
+    //this.change.emit(this.isFavorite);
+    this.change.emit( { newValue: this.isFavorite } ); //Pueden ser objetos más complejos como un objeto
   }
 
   constructor() { }
@@ -27,4 +28,9 @@ export class StarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+}
+
+
+export interface StarChangeEventArgs {
+  newValue: boolean
 }

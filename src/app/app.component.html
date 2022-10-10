@@ -2,6 +2,7 @@
 <!--Cuando angular ve este elemento, renderiza el template relacionado en el Component-->
 <courses></courses>
 <!-- Input y Output properties sobre un componente que definen un Component API para hacerlo mas reusable -->
-<app-star [is-favorite]="post.isFavorite" (change)="onStarChanged()"></app-star>
+<!-- <app-star [is-favorite]="post.isFavorite" (change)="onStarChanged($event)"></app-star> -->
+<app-star [is-favorite]="post.isFavorite" (change)="onStarChanged($event)"></app-star>
 <app-capitalize></app-capitalize>
 <app-authors></app-authors>
