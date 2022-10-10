@@ -14,7 +14,7 @@ export class StarComponent implements OnInit {
   isFavorite = false; //Aqui se inicializa apagada la estrella
 
   //Se decora y a la variable que se usará se inicializa con EventEmitter() y se importa, con cada clic, va a emitir lo que esta en el metodo asignado a ese (change)
-  @Output()
+  @Output('change') //Aplica lo mismo de los alias para input, si cambio el nombre de la variable, no afectará porque el contrato se hace con el alias en el HTML
   change = new EventEmitter();
 
   changeOnClick() {
