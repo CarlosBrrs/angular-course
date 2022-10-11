@@ -1,5 +1,5 @@
 //Para el primer enfoque se necesita importar Input y se anota el field con @Input()...
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-star',
@@ -13,7 +13,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
     color: blue;
     }
     `
-  ]
+  ],
+  encapsulation: ViewEncapsulation.Emulated //Emula el shadowDOM (aplicar por ej estilos, a un solo objeto y no a todos iguales) y soporta la mayoria de browsers y versiones
 })
 
 export class StarComponent implements OnInit {
@@ -38,7 +39,6 @@ export class StarComponent implements OnInit {
   }
 
 }
-
 
 export interface StarChangeEventArgs {
   newValue: boolean
