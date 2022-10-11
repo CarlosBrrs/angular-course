@@ -6,7 +6,8 @@
 <app-star [is-favorite]="post.isFavorite" (change)="onStarChanged($event)"></app-star>
 <app-capitalize></app-capitalize>
 <bootstrap-panel>
-    <div class="header">Heading</div>
+    <!-- <div class="header">Heading</div> -->
+    <ng-container class="header">Heading</ng-container> <!-- Si reemplazamos div por ng-container, en tiempo de ejecucion, solo inyecta el texto y no la clase a donde se este llamando este div-->
     <div class="body">
         <h2>Body</h2>
         <p>Some content here...</p>
