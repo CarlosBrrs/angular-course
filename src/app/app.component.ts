@@ -24,4 +24,8 @@ export class AppComponent {
   onStarChanged(eventArgs: StarChangeEventArgs) {
     console.log("Star changed: ", eventArgs);
   }
+
+  courses = [1, 2];
+  // Comentar arriba y descomentar abajo para cambiar el mensaje
+  // courses = [];
 }

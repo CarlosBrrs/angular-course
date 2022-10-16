@@ -15,3 +15,34 @@
     </div>
 </bootstrap-panel>
 <app-authors></app-authors>
+
+<!-- Directivas nos ayudan a modificar el DOM, existen estructurales y de atributos -->
+<!-- Este va a ser estructual porque va a agregar o remover un elemento del DOM, a estas se les antepone el asterisco. Puede ser un metodo que evalue la condicion tambien -->
+<!-- Enfoque antes de Angular 4 -->
+<p>Enfoque < Angular4</p>
+<div *ngIf="courses.length > 0">
+    List of courses
+</div>
+<div *ngIf="courses.length <= 0">
+    No courses yet
+</div>
+
+<!-- A partir de Angular V -->
+<p>A partir de Angular 4</p>
+<div *ngIf="courses.length > 0; else noCourses">
+    List of courses
+</div>
+<ng-template #noCourses>
+    No courses yet
+</ng-template>
+
+<p>Otra opcion Angular4+</p>
+<div *ngIf="courses.length > 0; then coursesList else noCourses">
+    List of courses
+</div>
+<ng-template #coursesList>
+    List of courses
+</ng-template>
+<ng-template #noCourses>
+    No courses yet
+</ng-template>
