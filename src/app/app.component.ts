@@ -14,6 +14,12 @@ export class AppComponent {
     isFavorite: true
   }
 
+  tweet = {
+    body: "Body of the tweet...",
+    likesCount: 0,
+    isLiked: false
+  }
+
   // onStarChanged(isFavorite: boolean) {
   onStarChanged(eventArgs: StarChangeEventArgs) {
     console.log("Star changed: ", eventArgs);

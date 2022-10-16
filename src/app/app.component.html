@@ -4,6 +4,7 @@
 <!-- Input y Output properties sobre un componente que definen un Component API para hacerlo mas reusable -->
 <!-- <app-star [is-favorite]="post.isFavorite" (change)="onStarChanged($event)"></app-star> -->
 <app-star [is-favorite]="post.isFavorite" (change)="onStarChanged($event)"></app-star>
+<app-like [likes-count]="tweet.likesCount" [is-active]="tweet.isLiked"></app-like>
 <app-capitalize></app-capitalize>
 <bootstrap-panel>
     <!-- <div class="header">Heading</div> -->
