@@ -46,3 +46,12 @@
 <ng-template #noCourses>
     No courses yet
 </ng-template>
+
+<!-- Con hidden attributes. Ambos elementos existen en el DOM, pero son hidden de acuerdo a la condicion, en la directiva ngIf solo existe el que cumpla con la condicion -->
+<p>Con hidden attributes</p>
+<div [hidden]="courses.length == 0">
+    List of courses
+</div>
+<div [hidden]="courses.length > 0">
+    No courses yet
+</div>
