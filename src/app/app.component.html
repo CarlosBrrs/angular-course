@@ -73,11 +73,15 @@
 
 <!-- ngFor. Puede exportar valores que ayudan a implementar funcionalidades, por ej index y la variable local la llamamos i
 La lista de todos los export values se puede ver en angular.io buscando ngForOf -->
+<!-- Change detection activada en Angular, cualquier cambio en el DOM lo refleja automaticamente -->
 <br/>
 <p>ngFor example</p>
+<button (click)="onAdd()">Add</button>
 <ul>
     <li *ngFor="let course of coursesNgFor; index as i">
-        {{ i + 1 }} - {{course.name }} 
+        {{ i + 1 }} - {{course.name }}
+        <button (click)="onRemove(course)">Remove</button>
+        <button (click)="onChange(course)">Change name to "UPDATED"</button>
     </li>
     <li *ngFor="let course of coursesNgFor; even as isEven">
         {{ course.name }} <span *ngIf="isEven">(EVEN)</span>

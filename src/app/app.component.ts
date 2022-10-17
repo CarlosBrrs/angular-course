@@ -38,4 +38,23 @@ export class AppComponent {
     {id: 2, name: 'Physics'},
     {id: 3, name: 'Chemistry'}
   ]
+
+  onAdd() {
+    this.coursesNgFor.push({id:4, name: 'Analytics'});
+  }
+
+  onRemove(course: CourseInterface) {
+    let index = this.coursesNgFor.indexOf(course);
+    this.coursesNgFor.splice(index,1);
+  }
+
+  onChange(course: CourseInterface) {
+    course.name = 'UPDATED';
+  }
+
+}
+
+export interface CourseInterface {
+  id: number,
+  name: string
 }
