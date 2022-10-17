@@ -67,6 +67,8 @@ export class AppComponent {
     return coursesFromServer ? coursesFromServer.id : undefined;
   }
 
+  canSave = false;
+
 }
 
 export interface CourseInterface {
