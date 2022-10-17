@@ -28,4 +28,7 @@ export class AppComponent {
   courses = [1, 2];
   // Comentar arriba y descomentar abajo para cambiar el mensaje
   // courses = [];
+
+  // Para setear el modo de vista en ngSwitch
+  viewMode = 'map';
 }
