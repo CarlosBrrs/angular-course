@@ -1,3 +1,13 @@
 <br/>
 <i class="bi" [class.bi-star]="isFavorite" [class.bi-star-fill]="!isFavorite" (click)="changeOnClick()">Click me to change my background</i>
+<br/>
+<!-- Haciendo lo mismo con la implementacion de ngClass -->
+<span>
+    <i class="bi"  
+    [ngClass]="{
+        'bi-star': isFavorite,
+        'bi-star-fill': !isFavorite
+    }"
+    (click)="changeOnClick()">Click me to change my background with ngClass</i>    
+</span>
 
