@@ -69,6 +69,14 @@ export class AppComponent {
 
   canSave = false;
 
+  // Solucion pendiente cuando assignee es null
+  task = {
+    title: 'Review applications',
+    assignee: {
+      name: 'John Smith'
+    }
+  }
+
 }
 
 export interface CourseInterface {

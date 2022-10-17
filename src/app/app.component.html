@@ -126,3 +126,13 @@ Si se le adiciona el trackBy y el metodo al que hacer referencia, se indica que 
     }">
     Save with ngStyle
 </button>
+
+<br/>
+<!-- Safe traversal operator. Si assignee es null no puede interpolar el nombre -->
+<span> {{ task.assignee.name }}</span>
+
+<!-- Solucion 1 usando ngIf -->
+<span *ngIf="task.assignee"> {{ task.assignee.name }}</span>
+<!-- Solucion 2 Safe traversal operator -->
+<!-- <span> {{ task.assignee?.name }}</span> -->
+<!-- Solucion pendiente cuando assignee es null -->
