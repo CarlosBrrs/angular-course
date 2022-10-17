@@ -70,3 +70,16 @@
     <div *ngSwitchCase="'cards'">Some other view content</div>
     <div *ngSwitchDefault>Otherwise</div>
 </div>
+
+<!-- ngFor. Puede exportar valores que ayudan a implementar funcionalidades, por ej index y la variable local la llamamos i
+La lista de todos los export values se puede ver en angular.io buscando ngForOf -->
+<br/>
+<p>ngFor example</p>
+<ul>
+    <li *ngFor="let course of coursesNgFor; index as i">
+        {{ i + 1 }} - {{course.name }} 
+    </li>
+    <li *ngFor="let course of coursesNgFor; even as isEven">
+        {{ course.name }} <span *ngIf="isEven">(EVEN)</span>
+    </li>
+</ul>

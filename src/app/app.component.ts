@@ -31,4 +31,11 @@ export class AppComponent {
 
   // Para setear el modo de vista en ngSwitch
   viewMode = 'map';
+
+  // Para ngFor
+  coursesNgFor = [
+    {id: 1, name: 'Astronomy'},
+    {id: 2, name: 'Physics'},
+    {id: 3, name: 'Chemistry'}
+  ]
 }
