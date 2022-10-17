@@ -20,6 +20,8 @@ export class AppComponent {
     isLiked: false
   }
 
+  coursesFromServer!: CourseInterface[];
+
   // onStarChanged(isFavorite: boolean) {
   onStarChanged(eventArgs: StarChangeEventArgs) {
     console.log("Star changed: ", eventArgs);
@@ -37,7 +39,7 @@ export class AppComponent {
     {id: 1, name: 'Astronomy'},
     {id: 2, name: 'Physics'},
     {id: 3, name: 'Chemistry'}
-  ]
+  ];
 
   onAdd() {
     this.coursesNgFor.push({id:4, name: 'Analytics'});
@@ -50,6 +52,19 @@ export class AppComponent {
 
   onChange(course: CourseInterface) {
     course.name = 'UPDATED';
+  }
+
+  // Cargando desde el servidor
+  loadCourses() {
+    this.coursesFromServer = [
+      {id: 1, name: 'Astronomy'},
+      {id: 2, name: 'Physics'},
+      {id: 3, name: 'Chemistry'}
+    ];
+  }
+
+  trackCourse(index: any, coursesFromServer: CourseInterface) {
+    return coursesFromServer ? coursesFromServer.id : undefined;
   }
 
 }

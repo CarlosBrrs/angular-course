@@ -26,6 +26,18 @@
 <div *ngIf="courses.length <= 0">
     No courses yet
 </div>
+<!-- Cuando usamos el asterisco, Angular reescribe el elemento de la siguiente forma:
+<ng-template [ngIf]="courses.length > 0">
+    <div>
+        List of courses
+    </div>
+</ng-template>
+<ng-template [ngIf]="!(courses.length > 0)">
+    <div>
+        No courses yet
+    </div>
+</ng-template>
+-->
 
 <!-- A partir de Angular V -->
 <p>A partir de Angular 4</p>
@@ -85,5 +97,14 @@ La lista de todos los export values se puede ver en angular.io buscando ngForOf 
     </li>
     <li *ngFor="let course of coursesNgFor; even as isEven">
         {{ course.name }} <span *ngIf="isEven">(EVEN)</span>
+    </li>
+</ul>
+
+<!-- Simulando cargar los cursos desde el servidor. Cada vez que se presiona el boton se vuelve a llamar al metodo y se recarga la informacion porque apunta a la direccion en memoria por defecto 
+Si se le adiciona el trackBy y el metodo al que hacer referencia, se indica que se haga track por el id en este caso, y al hacer click varias veces no recarga, porque el id nunca cambia-->
+<button (click)="loadCourses()">Load courses</button>
+<ul>
+    <li *ngFor="let course of coursesFromServer; trackBy: trackCourse">
+        {{course.name }}
     </li>
 </ul>
