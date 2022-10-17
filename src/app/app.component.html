@@ -136,3 +136,9 @@ Si se le adiciona el trackBy y el metodo al que hacer referencia, se indica que 
 <!-- Solucion 2 Safe traversal operator -->
 <!-- <span> {{ task.assignee?.name }}</span> -->
 <!-- Solucion pendiente cuando assignee es null -->
+
+<!-- Custom directives -->
+<br/><br/>
+<p>Custom directives</p>
+<input type="text" appInputFormat [format]="'uppercase'">
+<input type="text" [appInputFormat]="'uppercase'"> <!--  Si se quiere trabajar con varias propiedades de la directiva, es mejor usar cada uno por separado como esta arriba-->

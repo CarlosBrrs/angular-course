@@ -12,6 +12,7 @@ import { CapitalizeComponent } from './capitalize/capitalize.component';
 import { CustomCapitalizePipe } from './customCapitalize.pipe';
 import { PanelComponent } from './panel/panel.component';
 import { LikeComponent } from './like/like.component';
+import { InputFormatDirective } from './input-format.directive';
 
 //Agregar el nuevo componente CoursesComponent al modulo de la App
 //Se pueden generar los archivos necesarios para un nuevo componente en una nueva carpeta en app y agregarlos al modulo principal de la app con el comando: ng g c <nombreComponente>
@@ -27,7 +28,8 @@ import { LikeComponent } from './like/like.component';
     CapitalizeComponent,
     CustomCapitalizePipe,
     PanelComponent,
-    LikeComponent
+    LikeComponent,
+    InputFormatDirective
   ],
   imports: [
     BrowserModule,
