@@ -1,0 +1,16 @@
+<div class="zippy">
+    <div class="zippy-header"
+    [class.expanded]="isExpanded"
+    (click)="toggle()">
+        {{ title }}
+        <span class="bi"
+        [ngClass]="{
+            'bi-chevron-down': !isExpanded,
+            'bi-chevron-up': isExpanded
+        }"></span>
+
+    </div>
+    <div *ngIf="isExpanded" class="zippy-body"> <!-- ngIf renderizara el div solo si isExpanded es true, que se cambia en el div de arriba con cada clic-->
+        <ng-content></ng-content> <!-- Toma todo el contenido dentro de donde se esta usando el componente zippy -->
+    </div>
+</div>
