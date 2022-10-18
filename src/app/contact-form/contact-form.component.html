@@ -14,7 +14,8 @@
 <form>
     <div class="form-group">
         <label for="firstName">First name</label>
-        <input ngModel name="firstName" id="firstName" type="text" class="form-control"> <!-- ngModel sin two way binding syntax [()], Angular va a crear un objeto de control asociado con este campo. Debe ir con el name para que angular cree una instancia de FormControl y la asocie con el inputfield-->
+        <input required ngModel name="firstName" id="firstName" #firstName="ngModel" type="text" class="form-control"> <!-- ngModel sin two way binding syntax [()], Angular va a crear un objeto de control asociado con este campo. Debe ir con el name para que angular cree una instancia de FormControl y la asocie con el inputfield-->
+        <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">First name is required</div> <!-- Usa la variable firstName (#) que esta haciendo referencia al objeto ngModel. El required de la linea de arriba revisa que haya algo en el campo y el valid de esta linea valida eso. Solo renderiza si se cumple en ngIf. -->
     </div>
     <div class="form-group">
         <label for="comment">Comment</label>
