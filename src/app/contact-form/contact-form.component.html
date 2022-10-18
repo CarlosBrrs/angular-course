@@ -1,11 +1,24 @@
+<!-- La clase form-control me permite agregar validaciones a cada campo. Para cada field se necesita una instancia de la clase FormControl, como:
+        - value - almacenado
+        - touched
+        - untouched
+        - dirty - si cambió
+        - pristine - si no cambio
+        - valid - si es valido o no
+        - errors - errores a arrojar
+    La clase form-group representa un grupo de control en un formulario. Todas las validaciones anteriores tambien estan disponibles para el FormGroup
+    Hay dos formas de crear controles en el form. Uno es aplicando directivas y Angular creará las validaciones tras bambalinas -> Template-driven forms
+    La segunda manera implica crear estos controles explicitamente: Escribir codigo en los componentes para crear nuevas instancias de grupos de control y objetos de control -> Reactive forms
+    Reactive se tiene mas control sobre la logica de validacion, buenos para formularios completos y se pueden testear con pruebas unitarias
+    Template-driven son mejores para formularios simples, validaciones simples, mas faciles de crear y con menos codigo, pero tambien menos control en la validacion -->
 <form>
     <div class="form-group">
         <label for="firstName">First name</label>
-        <input id="firstName" type="text" class="form-control">
+        <input ngModel name="firstName" id="firstName" type="text" class="form-control"> <!-- ngModel sin two way binding syntax [()], Angular va a crear un objeto de control asociado con este campo. Debe ir con el name para que angular cree una instancia de FormControl y la asocie con el inputfield-->
     </div>
     <div class="form-group">
         <label for="comment">Comment</label>
-        <textarea id="comment" cols="30" rows="10" class="form-control"></textarea>
+        <textarea ngModel name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
     </div>
     <button class="btn btn-primary">Submit</button>
 </form>
