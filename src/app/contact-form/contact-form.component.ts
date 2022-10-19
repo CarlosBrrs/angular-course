@@ -17,4 +17,10 @@ export class ContactFormComponent {
   submit(f: NgForm) {
     console.log(f);
   }
+
+  contactMethods = [
+    {id:1, name: 'Email'},
+    {id:2, name: 'SMS'},
+    {id:3, name: 'Phone'}
+  ]
 }
