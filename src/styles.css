@@ -6,3 +6,7 @@
 body {
     padding: 10px;
 }
+
+.form-control.ng-touched.ng-invalid { /*clases ng agregadas dinamicamente por angular cuando touched e invalid son true, se agregan a todos los form-control*/
+    border: 2px solid red;
+}
