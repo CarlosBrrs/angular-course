@@ -28,5 +28,13 @@
         <label for="comment">Comment</label>
         <textarea ngModel name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
     </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" ngModel name="isSubscribed"> Subscribe to mailing list
+        </label>
+    </div>
+    <p>
+        {{ f.value | json }} <!-- con este pipeline podemos ver el objeto que se esta enviando en el form, se puede usar con propositos de debug. Funciona dinamicamente -->
+    </p>
     <button class="btn btn-primary" [disabled]="!f.valid">Submit</button> <!-- Deshabilitar el boton para que no funcione cuando se renderiza la pag por primera vez -->
 </form>
