@@ -22,5 +22,11 @@ export class ContactFormComponent {
     {id:1, name: 'Email'},
     {id:2, name: 'SMS'},
     {id:3, name: 'Phone'}
-  ]
+  ];
+
+  gendersFromServer = [
+    {id:1, name: 'Male'},
+    {id:2, name: 'Female'},
+    {id:3, name: 'Non-binary'}
+  ];
 }

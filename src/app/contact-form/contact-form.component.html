@@ -40,6 +40,12 @@
             <option *ngFor="let method of contactMethods" [value]="method.id" [ngValue]="method"> {{ method.name }} </option> <!-- value solo recibe strings, si queremos enviar toda la info, un objeto mas complejo, podemos usar [ngValue] y pasar el objeto complejo -->
         </select>
     </div>
+    <div *ngFor="let gender of gendersFromServer" class="radio">
+        <label for="">
+            <input ngModel type="radio" name="gender" [value]="gender.id">
+            {{ gender.name }}
+        </label>
+    </div>
     <p>
         {{ f.value | json }} <!-- con este pipeline podemos ver el objeto que se esta enviando en el form, se puede usar con propositos de debug. Funciona dinamicamente -->
     </p>
