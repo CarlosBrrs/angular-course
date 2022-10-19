@@ -12,14 +12,17 @@
     Reactive se tiene mas control sobre la logica de validacion, buenos para formularios completos y se pueden testear con pruebas unitarias
     Template-driven son mejores para formularios simples, validaciones simples, mas faciles de crear y con menos codigo, pero tambien menos control en la validacion -->
 <form #f="ngForm" (ngSubmit)="submit(f)"> <!-- Angular aplica por defecto la directiva ngForm. Con la variable f, hacemos apuntar la variable hacia el objeto ngForm -->
-    <div class="form-group">
-        <label for="firstName">First name</label>
-        <input required minlength="3" maxlength="10" pattern="[A-Za-z0-9]+" ngModel name="firstName" id="firstName" #firstName="ngModel" type="text" class="form-control" (change)="log(firstName)"> <!-- Cuando se aplica ngModel sin two way binding syntax [()], Angular va a crear un objeto de control asociado con este campo. Debe ir con el name para que angular cree una instancia de FormControl y la asocie con el inputfield. Valida tambien longitud minima, maxima y patron de solo letras y numeros-->
-        <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid"> <!-- Usa la variable #firstName (#) que esta haciendo referencia al objeto ngModel. El required de la linea de arriba revisa que haya algo en el campo y el valid de esta linea valida eso. Solo renderiza si se cumple en ngIf. -->
-            <div *ngIf="firstName.errors?.['required']">First name is required</div> <!-- si existe este error, renderiza el mensaje -->
-            <div *ngIf="firstName.errors?.['minlength']">First name should be minimun {{firstName.errors?.['minlength'].requiredLength}} characters and you typed {{firstName.errors?.['minlength'].actualLength}} of them</div> <!-- No se necesita maxlength porque no deja pasar de 10 caracteres -->
-            <div *ngIf="firstName.errors?.['pattern']">You are only able to use letters and numbers</div> <!-- si existe el error, renderiza el mensaje -->
-        </div> 
+    <div ngModelGroup="contact" #contact="ngModelGroup"> <!-- ngModelGroup para trabajar con objetos mas complejos del fomrulario, el #contact permite hacer referencia al ngModelGroup y es util si se quiere validar un grupo en conjunto (billing details y desplegar todos los errores de ese grupo arriba) -->
+        <div *ngIf="!contact.valid">Cheking entire group</div> <!-- Valida el grupo entero -->
+        <div class="form-group">
+            <label for="firstName">First name</label>
+            <input required minlength="3" maxlength="10" pattern="[A-Za-z0-9]+" ngModel name="firstName" id="firstName" #firstName="ngModel" type="text" class="form-control" (change)="log(firstName)"> <!-- Cuando se aplica ngModel sin two way binding syntax [()], Angular va a crear un objeto de control asociado con este campo. Debe ir con el name para que angular cree una instancia de FormControl y la asocie con el inputfield. Valida tambien longitud minima, maxima y patron de solo letras y numeros-->
+            <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid"> <!-- Usa la variable #firstName (#) que esta haciendo referencia al objeto ngModel. El required de la linea de arriba revisa que haya algo en el campo y el valid de esta linea valida eso. Solo renderiza si se cumple en ngIf. -->
+                <div *ngIf="firstName.errors?.['required']">First name is required</div> <!-- si existe este error, renderiza el mensaje -->
+                <div *ngIf="firstName.errors?.['minlength']">First name should be minimun {{firstName.errors?.['minlength'].requiredLength}} characters and you typed {{firstName.errors?.['minlength'].actualLength}} of them</div> <!-- No se necesita maxlength porque no deja pasar de 10 caracteres -->
+                <div *ngIf="firstName.errors?.['pattern']">You are only able to use letters and numbers</div> <!-- si existe el error, renderiza el mensaje -->
+            </div> 
+        </div>
     </div>
     <div class="form-group">
         <label for="comment">Comment</label>
