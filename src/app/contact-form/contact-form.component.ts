@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgModel } from '@angular/forms';
+import { NgForm, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-form',
@@ -12,5 +12,9 @@ export class ContactFormComponent {
 
   log(x: NgModel) {
     console.log(x);
+  }
+
+  submit(f: NgForm) {
+    console.log(f);
   }
 }
