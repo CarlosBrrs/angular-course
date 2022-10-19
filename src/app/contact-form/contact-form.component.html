@@ -12,7 +12,7 @@
     Reactive se tiene mas control sobre la logica de validacion, buenos para formularios completos y se pueden testear con pruebas unitarias
     Template-driven son mejores para formularios simples, validaciones simples, mas faciles de crear y con menos codigo, pero tambien menos control en la validacion -->
 <form #f="ngForm" (ngSubmit)="submit(f)"> <!-- Angular aplica por defecto la directiva ngForm. Con la variable f, hacemos apuntar la variable hacia el objeto ngForm -->
-    <div ngModelGroup="contact" #contact="ngModelGroup"> <!-- ngModelGroup para trabajar con objetos mas complejos del fomrulario, el #contact permite hacer referencia al ngModelGroup y es util si se quiere validar un grupo en conjunto (billing details y desplegar todos los errores de ese grupo arriba) -->
+    <div ngModelGroup="contact" #contact="ngModelGroup"> <!-- ngModelGroup para trabajar con objetos mas complejos del fomrulario, el #contact permite hacer referencia al ngModelGroup y es util si se quiere validar un grupo en conjunto (billing details y desplegar todos los errores de ese grupo arriba). A diferencia de ngForm, ngModel no tiene campo submit -->
         <div *ngIf="!contact.valid">Cheking entire group</div> <!-- Valida el grupo entero -->
         <div class="form-group">
             <label for="firstName">First name</label>
