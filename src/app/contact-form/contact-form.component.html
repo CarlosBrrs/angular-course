@@ -16,7 +16,7 @@
         <div *ngIf="!contact.valid">Cheking entire group</div> <!-- Valida el grupo entero -->
         <div class="form-group">
             <label for="firstName">First name</label>
-            <input required minlength="3" maxlength="10" pattern="[A-Za-z0-9]+" ngModel name="firstName" id="firstName" #firstName="ngModel" type="text" class="form-control" (change)="log(firstName)"> <!-- Cuando se aplica ngModel sin two way binding syntax [()], Angular va a crear un objeto de control asociado con este campo. Debe ir con el name para que angular cree una instancia de FormControl y la asocie con el inputfield. Valida tambien longitud minima, maxima y patron de solo letras y numeros-->
+            <input required minlength="3" maxlength="100" pattern="[A-Za-z0-9]+" ngModel name="firstName" id="firstName" #firstName="ngModel" type="text" class="form-control" (change)="log(firstName)"> <!-- Cuando se aplica ngModel sin two way binding syntax [()], Angular va a crear un objeto de control asociado con este campo. Debe ir con el name para que angular cree una instancia de FormControl y la asocie con el inputfield. Valida tambien longitud minima, maxima y patron de solo letras y numeros-->
             <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid"> <!-- Usa la variable #firstName (#) que esta haciendo referencia al objeto ngModel. El required de la linea de arriba revisa que haya algo en el campo y el valid de esta linea valida eso. Solo renderiza si se cumple en ngIf. -->
                 <div *ngIf="firstName.errors?.['required']">First name is required</div> <!-- si existe este error, renderiza el mensaje -->
                 <div *ngIf="firstName.errors?.['minlength']">First name should be minimun {{firstName.errors?.['minlength'].requiredLength}} characters and you typed {{firstName.errors?.['minlength'].actualLength}} of them</div> <!-- No se necesita maxlength porque no deja pasar de 10 caracteres -->
@@ -35,9 +35,9 @@
     </div>
     <div class="form-group">
         <label for="contactMethod">Contact Method</label>
-        <select multiple ngModel name="contactMethod" id="contactMethod" class="form-control"> <!-- En vez de usar muchos option dentro del select, se itera sobre el objeto que tenga la info que se necesita. Multiple deja elegir varias opciones y value envia un array con los id seleccionados, si se quita solo deja elegir una opcion-->
+        <select multiple ngModel name="contactMethod" id="contactMethod" class="form-control"> <!-- En vez de usar muchos option dentro del select, se itera sobre el objeto que tenga la info que se necesita. Multiple deja elegir varias opciones si se eligen con shift presionado y value envia un array con los id seleccionados, si se quita solo deja elegir una opcion-->
             <option value=""></option> <!-- La primera vez, aparece seleccionado uno por default, y en el form no aparece nada, hay que dar un campo vacio y forzar al usuario a seleccionar alguna opcion -->
-            <option *ngFor="let method of contactMethods" [value]="method.id" [ngValue]="method"> {{ method.name }} </option> <!-- value solo recibe strings, si queremos enviar toda la info, un objeto mas complejo, podemos usar [ngValue] y pasar el objeto complejo -->
+            <option *ngFor="let method of contactMethods" [value]="method.id"> {{ method.name }} </option> <!-- value solo recibe strings, si queremos enviar toda la info, un objeto mas complejo, podemos usar [ngValue] y pasar el objeto complejo -->
         </select>
     </div>
     <div *ngFor="let gender of gendersFromServer" class="radio">
