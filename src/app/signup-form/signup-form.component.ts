@@ -13,7 +13,9 @@ export class SignupFormComponent {
     //Segundo parametro: Validator. Un ValidatorFn o un array de ValidatorFn
     //Primer parametro: Valor inicial del FormControl
     //Primer parametro: Valor inicial del FormControl
-    username: new FormControl('', Validators.required), //Puede ser FormControl o FormGroup ya que ambos heredan de AbstractControl. Depende de la necesidad especifica a validar. Si no lanza error, la key se puede usar sin comillas simples
+    username: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3)]), //Puede ser FormControl o FormGroup ya que ambos heredan de AbstractControl. Depende de la necesidad especifica a validar. Si no lanza error, la key se puede usar sin comillas simples
     password: new FormControl('', Validators.required)
   });
 
