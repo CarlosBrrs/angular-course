@@ -1,3 +1,4 @@
+import { UsernameValidators } from './username.validators';
 import { Component } from '@angular/core';
 import {FormGroup, FormControl, Validators } from '@angular/forms'
 
@@ -11,11 +12,10 @@ export class SignupFormComponent {
   form = new FormGroup({
     //Primer parametro: Valor inicial del FormControl. Opcional
     //Segundo parametro: Validator. Un ValidatorFn o un array de ValidatorFn
-    //Primer parametro: Valor inicial del FormControl
-    //Primer parametro: Valor inicial del FormControl
-    username: new FormControl('', [
+    username: new FormControl('', [  //Puede ser FormControl o FormGroup ya que ambos heredan de AbstractControl. Depende de la necesidad especifica a validar. Si no lanza error, la key se puede usar sin comillas simples
       Validators.required,
-      Validators.minLength(3)]), //Puede ser FormControl o FormGroup ya que ambos heredan de AbstractControl. Depende de la necesidad especifica a validar. Si no lanza error, la key se puede usar sin comillas simples
+      Validators.minLength(3),
+      UsernameValidators.cannotContainSpaces]), //Custom validator
     password: new FormControl('', Validators.required)
   });
 
