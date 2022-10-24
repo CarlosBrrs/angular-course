@@ -21,6 +21,14 @@ export class SignupFormComponent {
     password: new FormControl('', Validators.required)
   });
 
+/* Para nested FormGroups el objeto a usar seria este
+  form = new FormGroup({
+    account: new FormGroup({
+      username: new FormControl(''),
+      password: new FormControl('')
+    })
+  }); */
+
   //Siempre va a retornar login erroneo por propositos demostrativos
   login() {
     // this.username?.setErrors Si quisieramos setear errores al FormControl y no al FormGroup
@@ -31,5 +39,6 @@ export class SignupFormComponent {
 
   get username() {
     return this.form.get('username');
+    // return this.form.get('account.username'); return a usar si fuera nested FormGroups
   }
 }

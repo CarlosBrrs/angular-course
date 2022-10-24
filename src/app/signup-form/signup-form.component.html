@@ -1,10 +1,30 @@
 <!-- Para form reactivos, se deben crear los objetos FormControl en el codigo explicitamente -->
 <!-- En forms reactivos no se usan atributos HTML aqui sino que asignamos validators cuando se crean objetos FormControl -->
+<!-- Para nested FormGroups se necesita un div que contenga el FormGroup a usar, y dentro cada FormGroup individual -->
 
 <form [formGroup]="form" (ngSubmit)="login()"> <!-- Cuando queremos validar la info completa al presionar submit, y no mientras escribimos cada campo isaoladamente, por ej para un inicio de sesion: Tomamos la info, la enviamos al servidor, validamos y retornamos respuesta-->
     <div *ngIf="form.errors" class="alert alert-danger">
         The username or password is invalid
     </div>
+    <!--Este seria el div a usar si quisieramos usar nestedFormGroups
+    <div formGroupName="account">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input 
+                formControlName="username"
+                id="username" 
+                type="text" 
+                class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input 
+            formControlName="password"
+                id="password" 
+                type="text" 
+                class="form-control">
+        </div>     
+    </div>-->
     <div class="form-group">
         <label for="username">Username</label>
         <input 
