@@ -9,6 +9,7 @@
             id="username" 
             type="text" 
             class="form-control">
+        <div *ngIf="username?.pending">Checking for uniquenes...</div> <!-- FormControls tienen una propiedad "pending" que retorna true si al menos un validador asincrono esta en progreso-->
         <div *ngIf="username?.touched && username?.invalid" class="alert alert-danger">
             <div *ngIf="username?.errors?.['required']">Username is required</div>
             <div *ngIf="username?.errors?.['minlength']">Username should be minimum {{ username?.errors?.['minlength'].requiredLength }} characters</div>
