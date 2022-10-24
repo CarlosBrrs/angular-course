@@ -21,6 +21,14 @@ export class SignupFormComponent {
     password: new FormControl('', Validators.required)
   });
 
+  //Siempre va a retornar login erroneo por propositos demostrativos
+  login() {
+    // this.username?.setErrors Si quisieramos setear errores al FormControl y no al FormGroup
+    this.form.setErrors({
+      invalidLogin: true
+    });
+  }
+
   get username() {
     return this.form.get('username');
   }
