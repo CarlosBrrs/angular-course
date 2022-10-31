@@ -1,4 +1,4 @@
-import { FormGroup, FormArray, FormControl, FormBuilder, Validators, Validators.required } from '@angular/forms';
+import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
