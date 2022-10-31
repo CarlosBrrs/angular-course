@@ -1,6 +1,5 @@
-import { FormGroup, FormArray, FormControl } from '@angular/forms';
+import { FormGroup, FormArray, FormControl, FormBuilder, Validators, Validators.required } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'array-course-form',
@@ -10,8 +9,26 @@ import { ThisReceiver } from '@angular/compiler';
 export class ArrayCourseFormComponent {
 
   constructor() { }
+  /* Usando esta manera se puede eliminar el objeto form de la linea 26 y emplear solo formBuilder, esta manera es un poco mas limpia 
+  constructor(fb: FormBuilder) {
+    this.formBuilder = fb.group({
+      name: ['', Validators.required],
+      contact: fb.group({
+        email: [],
+        phone: []
+      }),
+      topics: fb.array([])
+    });
+   }
+
+   formBuilder; */
 
   form = new FormGroup({
+    name: new FormControl('', Validators.required),
+    contact: new FormGroup({
+      email: new FormControl(),
+      phone: new FormControl()
+    }),
     topics: new FormArray([])
   });
 
