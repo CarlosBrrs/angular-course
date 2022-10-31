@@ -17,6 +17,7 @@ import { InputFormatDirective } from './input-format.directive';
 import { ZippyComponent } from './zippy/zippy.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
+import { ArrayCourseFormComponent } from './array-course-form/array-course-form.component';
 
 //Agregar el nuevo componente CoursesComponent al modulo de la App
 //Se pueden generar los archivos necesarios para un nuevo componente en una nueva carpeta en app y agregarlos al modulo principal de la app con el comando: ng g c <nombreComponente>
@@ -37,7 +38,8 @@ import { NewCourseFormComponent } from './new-course-form/new-course-form.compon
     ZippyComponent,
     ContactFormComponent,
     NewCourseFormComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    ArrayCourseFormComponent
   ],
   imports: [
     BrowserModule,
